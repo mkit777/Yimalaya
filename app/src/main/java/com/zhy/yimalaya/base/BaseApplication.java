@@ -3,6 +3,7 @@ package com.zhy.yimalaya.base;
 import android.app.Application;
 
 import com.ximalaya.ting.android.opensdk.datatrasfer.CommonRequest;
+import com.zhy.yimalaya.utils.LogUtil;
 
 public class BaseApplication extends Application {
     @Override
@@ -14,5 +15,9 @@ public class BaseApplication extends Application {
         mXimalaya.setAppkey("9f9ef8f10bebeaa83e71e62f935bede8");
         mXimalaya.setPackid("com.app.test.android");
         mXimalaya.init(this, mAppSecret);
+
+        // 初始化日志工具类
+        LogUtil.init("Zimalaya", false);
+
     }
 }
