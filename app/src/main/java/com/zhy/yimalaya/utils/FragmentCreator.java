@@ -11,9 +11,9 @@ import java.util.function.BiFunction;
 
 public class FragmentCreator {
     private static final String TAG = "FragmentCreator";
-    private static final int HISTORY_FRAGMENT_INDEX = 0;
-    private static final int RECOMMEND_FRAGMENT_INDEX = 1;
-    private static final int SUBSCRIBE_FRAGMENT_INDEX = 2;
+    private static final int RECOMMEND_FRAGMENT_INDEX = 0;
+    private static final int SUBSCRIBE_FRAGMENT_INDEX = 1;
+    private static final int HISTORY_FRAGMENT_INDEX = 2;
 
     private static final int FRAGMENT_SIZE = 3;
 

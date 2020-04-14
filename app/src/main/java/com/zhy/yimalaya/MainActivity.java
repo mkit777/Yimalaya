@@ -7,8 +7,7 @@ import android.os.Bundle;
 
 
 import com.zhy.yimalaya.adapters.MainContentAdapter;
-import com.zhy.yimalaya.adapters.SimplePagerAdapter;
-import com.zhy.yimalaya.adapters.SimpleNavigatorAdapter;
+import com.zhy.yimalaya.adapters.TabContentAdapter;
 
 import net.lucode.hackware.magicindicator.MagicIndicator;
 import net.lucode.hackware.magicindicator.ViewPagerHelper;
@@ -25,20 +24,18 @@ public class MainActivity extends AppCompatActivity {
     private MagicIndicator mMagicIndicator;
 
     private List<String> mDataList;
-    private SimplePagerAdapter mSimplePagerAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        initData();
+        loadTabData();
         initView();
     }
 
-    private void initData() {
+    private void loadTabData() {
         String[] tabTitles = getResources().getStringArray(R.array.tab_titles);
         mDataList = Arrays.asList(tabTitles);
-        mSimplePagerAdapter = new SimplePagerAdapter(mDataList);
     }
 
     private void initView() {
@@ -52,9 +49,9 @@ public class MainActivity extends AppCompatActivity {
         // 自适应宽度
         navigator.setAdjustMode(true);
         // 设置导航背景
-        navigator.setBackgroundColor(getResources().getColor(R.color.colorPrimary));
+        navigator.setBackgroundColor(getResources().getColor(R.color.colorPrimary, getTheme()));
         // 设置导航适配器
-        navigator.setAdapter(new SimpleNavigatorAdapter(mDataList, mViewPager ));
+        navigator.setAdapter(new TabContentAdapter(mDataList, mViewPager ));
         // 将导航绑定到指示器上
         mMagicIndicator.setNavigator(navigator);
         // 将指示器与视图页绑定

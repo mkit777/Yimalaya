@@ -1,6 +1,5 @@
 package com.zhy.yimalaya.adapters;
 
-import android.nfc.Tag;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
@@ -11,7 +10,6 @@ import com.zhy.yimalaya.utils.FragmentCreator;
 import com.zhy.yimalaya.utils.LogUtil;
 
 public class MainContentAdapter extends FragmentPagerAdapter {
-
 
     private static final String TAG = "MainContentAdapter";
 

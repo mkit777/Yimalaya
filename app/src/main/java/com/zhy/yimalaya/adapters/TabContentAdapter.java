@@ -17,12 +17,12 @@ import java.util.List;
 /**
  * 导航条的适配器
  */
-public class SimpleNavigatorAdapter extends CommonNavigatorAdapter {
+public class TabContentAdapter extends CommonNavigatorAdapter {
 
     private List<String> mDataList;
     private ViewPager mViewPager;
 
-    public SimpleNavigatorAdapter(List<String> data, ViewPager viewPager) {
+    public TabContentAdapter(List<String> data, ViewPager viewPager) {
         this.mDataList = data;
         this.mViewPager = viewPager;
     }

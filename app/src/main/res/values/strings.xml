@@ -1,8 +1,8 @@
 <resources>
     <string name="app_name">Yimalaya</string>
     <string-array name="tab_titles">
-        <item>历史</item>
         <item>推荐</item>
         <item>订阅</item>
+        <item>历史</item>
     </string-array>
 </resources>

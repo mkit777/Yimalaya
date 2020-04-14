@@ -18,6 +18,5 @@ public class BaseApplication extends Application {
 
         // 初始化日志工具类
         LogUtil.init("Zimalaya", false);
-
     }
 }
