@@ -6,6 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.zhy.yimalaya.R;
+import com.zhy.yimalaya.base.BaseFragment;
 
 public class SubscribeFragment extends BaseFragment {
     @Override

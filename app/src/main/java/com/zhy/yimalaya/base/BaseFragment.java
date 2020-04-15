@@ -1,4 +1,4 @@
-package com.zhy.yimalaya.fragments;
+package com.zhy.yimalaya.base;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;

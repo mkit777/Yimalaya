@@ -1,11 +1,14 @@
 package com.zhy.yimalaya.base;
 
 import android.app.Application;
+import android.os.Handler;
 
 import com.ximalaya.ting.android.opensdk.datatrasfer.CommonRequest;
 import com.zhy.yimalaya.utils.LogUtil;
 
 public class BaseApplication extends Application {
+
+    public static Handler handler = new Handler();
     @Override
     public void onCreate() {
         super.onCreate();
