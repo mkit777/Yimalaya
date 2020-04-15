@@ -50,7 +50,7 @@ public class RecommendFragment extends BaseFragment implements IRecommendCallbac
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         mRecommendPresenter = RecommendPresenter.getInstance();
-        mRecommendPresenter.register(this);
+        mRecommendPresenter.registerResultCallback(this);
         mRecommendPresenter.getRecommendList();
     }
 
@@ -93,7 +93,7 @@ public class RecommendFragment extends BaseFragment implements IRecommendCallbac
     public void onDestroyView() {
         super.onDestroyView();
         if (mRecommendPresenter != null) {
-            mRecommendPresenter.unregister(this);
+            mRecommendPresenter.unregisterResultCallback(this);
         }
     }
 

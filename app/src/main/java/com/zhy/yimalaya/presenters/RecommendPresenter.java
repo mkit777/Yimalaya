@@ -89,7 +89,7 @@ public class RecommendPresenter implements IRecommendPresenter {
     }
 
     @Override
-    public void register(IRecommendCallback callback) {
+    public void registerResultCallback(IRecommendCallback callback) {
         if (callbacks.contains(callback)) {
             LogUtil.d(TAG, "该回调函数已经注册");
             return;
@@ -99,7 +99,7 @@ public class RecommendPresenter implements IRecommendPresenter {
     }
 
     @Override
-    public void unregister(IRecommendCallback callback) {
+    public void unregisterResultCallback(IRecommendCallback callback) {
         if (callbacks.contains(callback)) {
             callbacks.remove(callback);
             LogUtil.d(TAG, "数据回调已取消");

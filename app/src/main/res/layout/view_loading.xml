@@ -11,10 +11,9 @@
         android:gravity="center_horizontal"
         android:orientation="vertical">
 
-        <ImageView
+        <com.zhy.yimalaya.views.LoadingView
             android:layout_width="75dp"
-            android:layout_height="75dp"
-            android:src="@mipmap/loading" />
+            android:layout_height="75dp" />
 
         <TextView
             android:layout_width="wrap_content"
