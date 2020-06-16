@@ -49,7 +49,7 @@ public class HistoryPresenter implements IHistoryPresenter, IHistoryDaoCallback 
             isDeleteByAdd = true;
             mHistoryDao.deleteHistory(track);
             // 删除完自己后发现已满，则把最后一条给删除
-            if (mData.size() >= Constants.MAX_HISTORY_SIZE) {
+            if (mData != null && mData.size() >= Constants.MAX_HISTORY_SIZE) {
                 isDeleteByAdd = true;
                 mHistoryDao.deleteHistory(mData.get(mData.size() - 1));
             }
