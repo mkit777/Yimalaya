@@ -100,5 +100,13 @@ public abstract class UiLoader extends FrameLayout {
         this.onRefreshClickListener = onRefreshClickListener;
     }
 
+    /**
+     * 获取成功时的布局
+     *
+     * 不需要手动加入到父组件中
+     * @param inflater
+     * @param parent
+     * @return
+     */
     protected abstract View getSuccessView(LayoutInflater inflater, ViewGroup parent);
 }

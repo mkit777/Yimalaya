@@ -26,6 +26,10 @@ android {
             jniLibs.srcDirs = ['libs']
         }
     }
+    compileOptions {
+        sourceCompatibility = 1.8
+        targetCompatibility = 1.8
+    }
 
 }
 
@@ -52,5 +56,9 @@ dependencies {
 
     implementation 'androidx.recyclerview:recyclerview:1.0.0'
     compile group: 'com.squareup.picasso', name: 'picasso', version: '2.5.2'
+
+    implementation 'com.lcodecorex:tkrefreshlayout:1.0.7'
+    implementation "io.reactivex.rxjava2:rxjava:2.2.10"
+    compile 'com.jaeger.statusbarutil:library:1.5.1'
 
 }

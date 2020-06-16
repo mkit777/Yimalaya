@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    tools:context=".PlayerActivity">
+
+    <TextView
+        android:id="@+id/play_track_title"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="50dp"
+        android:ellipsize="end"
+        android:singleLine="true"
+        android:text="音频名"
+        android:textAlignment="center"
+        android:textSize="20sp" />
+
+
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/play_image_list"
+        android:layout_width="match_parent"
+        android:layout_height="536dp"
+        android:layout_above="@+id/track_player"
+        android:layout_below="@+id/play_track_title" />
+
+    <LinearLayout
+        android:id="@+id/track_player"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:orientation="horizontal"
+            android:paddingHorizontal="20dp">
+
+            <TextView
+                android:id="@+id/player_progress_current"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:text="00:00" />
+
+
+            <SeekBar
+                android:id="@+id/player_progress"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:maxHeight="1dp"
+                android:progressDrawable="@drawable/layer_play_progress"
+                android:thumb="@drawable/shape_seekbar_circle" />
+
+            <TextView
+                android:id="@+id/player_progress_duration"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:text="00:00" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:paddingVertical="10dp">
+
+            <ImageView
+                android:id="@+id/player_mode_btn"
+                android:layout_width="0dp"
+                android:layout_height="22dp"
+                android:layout_weight="1"
+                android:src="@drawable/selector_play_mode_list" />
+
+            <ImageView
+                android:id="@+id/player_prev_btn"
+                android:layout_width="0dp"
+                android:layout_height="20dp"
+                android:layout_weight="1"
+                android:src="@drawable/selector_play_prev" />
+
+            <ImageView
+                android:id="@+id/player_stop_btn"
+                android:layout_width="0dp"
+                android:layout_height="24dp"
+                android:layout_weight="1"
+                android:src="@drawable/selector_play" />
+
+            <ImageView
+                android:id="@+id/player_next_btn"
+                android:layout_width="0dp"
+                android:layout_height="20dp"
+                android:layout_weight="1"
+                android:src="@drawable/selector_play_next" />
+
+            <ImageView
+                android:id="@+id/player_list_btn"
+                android:layout_width="0dp"
+                android:layout_height="22dp"
+                android:layout_weight="1"
+                android:src="@drawable/selector_play_mode_list" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+</RelativeLayout>

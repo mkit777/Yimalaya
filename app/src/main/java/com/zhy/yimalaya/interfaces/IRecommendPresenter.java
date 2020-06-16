@@ -1,9 +1,12 @@
 package com.zhy.yimalaya.interfaces;
 
-public interface IRecommendPresenter {
+import com.ximalaya.ting.android.opensdk.model.album.Album;
+
+import java.util.List;
+
+public interface IRecommendPresenter extends IBasePresenter<IRecommendCallback>{
     void getRecommendList();
 
-    void registerResultCallback(IRecommendCallback callback);
 
-    void unregisterResultCallback(IRecommendCallback callback);
+    List<Album> getCurrentRecommendList();
 }

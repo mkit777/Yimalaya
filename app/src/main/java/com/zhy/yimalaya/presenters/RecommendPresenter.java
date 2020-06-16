@@ -1,16 +1,16 @@
 package com.zhy.yimalaya.presenters;
 
-import androidx.arch.core.util.Function;
-
 import com.ximalaya.ting.android.opensdk.constants.DTransferConstants;
 import com.ximalaya.ting.android.opensdk.datatrasfer.CommonRequest;
 import com.ximalaya.ting.android.opensdk.datatrasfer.IDataCallBack;
 import com.ximalaya.ting.android.opensdk.model.album.Album;
-import com.ximalaya.ting.android.opensdk.model.album.AlbumList;
+import com.ximalaya.ting.android.opensdk.model.album.GussLikeAlbumList;
+import com.zhy.yimalaya.api.XimalayaApi;
 import com.zhy.yimalaya.interfaces.IRecommendCallback;
 import com.zhy.yimalaya.interfaces.IRecommendPresenter;
 import com.zhy.yimalaya.utils.LogUtil;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
@@ -30,6 +30,8 @@ public class RecommendPresenter implements IRecommendPresenter {
     }
 
 
+    private List<Album> currentRecommendList = new ArrayList<>();
+
     private RecommendPresenter() {
 
     }
@@ -38,24 +40,28 @@ public class RecommendPresenter implements IRecommendPresenter {
 
     public void getRecommendList() {
         fireBeforeRequest();
-        Map<String, String> map = new HashMap<String, String>();
-        map.put(DTransferConstants.CATEGORY_ID, "0");
-        map.put(DTransferConstants.CALC_DIMENSION, "1");
-        CommonRequest.getAlbumList(map, new IDataCallBack<AlbumList>() {
+        XimalayaApi.getInstance().gerRecommendList(new IDataCallBack<GussLikeAlbumList>() {
             @Override
-            public void onSuccess(AlbumList albumList) {
-                if (albumList.getAlbums().isEmpty()) {
+            public void onSuccess(GussLikeAlbumList gussLikeAlbumList) {
+                if (gussLikeAlbumList.getAlbumList().isEmpty()) {
                     fireOnEmpty();
                 } else {
-                    fireOnSuccess(albumList.getAlbums());
+                    currentRecommendList.clear();
+                    currentRecommendList.addAll(gussLikeAlbumList.getAlbumList());
+                    fireOnSuccess(gussLikeAlbumList.getAlbumList());
                 }
             }
 
             @Override
-            public void onError(int i, String s) {
-                fireOnError();
+            public void onError(int code, String error) {
+                fireOnError(code, error);
             }
         });
+    }
+
+    @Override
+    public List<Album> getCurrentRecommendList() {
+        return currentRecommendList;
     }
 
 
@@ -81,15 +87,15 @@ public class RecommendPresenter implements IRecommendPresenter {
         }
     }
 
-    private void fireOnError() {
-        LogUtil.d(TAG, "推荐数据加载失败");
+    private void fireOnError(int code, String error) {
+        LogUtil.d(TAG, String.format("推荐数据加载失败 code=%s  error=%s", code, error));
         for (IRecommendCallback callback : callbacks) {
             callback.onFailed();
         }
     }
 
     @Override
-    public void registerResultCallback(IRecommendCallback callback) {
+    public void registerViewCallback(IRecommendCallback callback) {
         if (callbacks.contains(callback)) {
             LogUtil.d(TAG, "该回调函数已经注册");
             return;
@@ -99,7 +105,7 @@ public class RecommendPresenter implements IRecommendPresenter {
     }
 
     @Override
-    public void unregisterResultCallback(IRecommendCallback callback) {
+    public void unregisterViewCallback(IRecommendCallback callback) {
         if (callbacks.contains(callback)) {
             callbacks.remove(callback);
             LogUtil.d(TAG, "数据回调已取消");

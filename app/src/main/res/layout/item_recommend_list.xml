@@ -30,7 +30,7 @@
             android:textSize="18sp" />
 
         <TextView
-            android:id="@+id/album_description"
+            android:id="@+id/album_intro"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="3dp"
@@ -86,7 +86,7 @@
                     android:src="@mipmap/ic_sound" />
 
                 <TextView
-                    android:id="@+id/album_context_size"
+                    android:id="@+id/album_track_count"
                     android:layout_width="45dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="2dp"
